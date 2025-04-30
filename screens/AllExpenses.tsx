@@ -1,8 +1,9 @@
-import { View, Text } from "react-native";
 import React from "react";
+import ExpensesOutput from "../components/Expenses/ExpensesOutput";
+import { DUMMY_EXPENSES } from "../data";
 
 const AllExpenses = () => {
-  return <></>;
+  return <ExpensesOutput expenses={DUMMY_EXPENSES} expensesPeriod="Total" />;
 };
 
 export default AllExpenses;
