@@ -15,8 +15,8 @@ const ExpensesSummary = ({ expenses, periodName }: ExpensesSummaryProps) => {
 
   return (
     <View className="p-2 rounded-md bg-purple-200 flex-row justify-between items-center">
-      <Text className="text-[12px] color-purple-900">{periodName}</Text>
-      <Text className="text-[16px] color-purple-900 font-bold">
+      <Text className="text-[12px] color-purple-700">{periodName}</Text>
+      <Text className="text-[16px] color-purple-700 font-bold">
         ${expensesSum.toFixed(2)}
       </Text>
     </View>
