@@ -13,7 +13,7 @@ const ExpensesOutput = ({ expenses, expensesPeriod }: ExpensesOutputProps) => {
   return (
     <View>
       <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
-      <ExpensesList />
+      <ExpensesList expenses={expenses} />
     </View>
   );
 };
