@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import type { Expense } from "../types";
+import { GlobalStyles } from "../../constants/styles";
 
 type ExpensesSummaryProps = {
   expenses: Array<Expense>;
@@ -13,9 +14,11 @@ const ExpensesSummary = ({ expenses, periodName }: ExpensesSummaryProps) => {
   }, 0);
 
   return (
-    <View>
-      <Text>{periodName}</Text>
-      <Text>${expensesSum.toFixed(2)}</Text>
+    <View className="p-2 rounded-md bg-purple-200 flex-row justify-between items-center">
+      <Text className="text-[12px] color-purple-900">{periodName}</Text>
+      <Text className="text-[16px] color-purple-900 font-bold">
+        ${expensesSum.toFixed(2)}
+      </Text>
     </View>
   );
 };
