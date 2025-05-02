@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList, ScreenName, screenTitle } from "./types";
+import { RootStackParamList, ScreenName } from "./types";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ManageExpense from "../screens/ManageExpense";

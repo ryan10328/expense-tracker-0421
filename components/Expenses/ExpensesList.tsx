@@ -1,6 +1,7 @@
 import { Text, FlatList, ListRenderItemInfo } from "react-native";
 import React from "react";
 import type { Expense } from "../types";
+import ExpenseItem from "./ExpenseItem";
 
 type ExpensesListProps = {
   expenses: Array<Expense>;
@@ -11,7 +12,7 @@ const ExpensesList = ({ expenses }: ExpensesListProps) => {
     <FlatList
       data={expenses}
       renderItem={(expense: ListRenderItemInfo<Expense>) => {
-        return <Text>{expense.item.description}</Text>;
+        return <ExpenseItem {...expense.item} />;
       }}
       keyExtractor={(item) => item.id}
     />
