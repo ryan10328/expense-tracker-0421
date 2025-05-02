@@ -1,6 +1,6 @@
-import { ExpenseType } from "../components/types";
+import { Expense } from "../components/types";
 
-export const DUMMY_EXPENSES: Array<ExpenseType> = [
+export const DUMMY_EXPENSES: Array<Expense> = [
   {
     id: "e1",
     description: "A pair of shoes",

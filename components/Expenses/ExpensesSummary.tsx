@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { ExpenseType } from "../types";
+import type { Expense } from "../types";
 
 type ExpensesSummaryProps = {
-  expenses: Array<ExpenseType>;
+  expenses: Array<Expense>;
   periodName: string;
 };
 

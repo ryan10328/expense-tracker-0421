@@ -2,10 +2,10 @@ import { View } from "react-native";
 import React from "react";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
-import { ExpenseType } from "../types";
+import type { Expense } from "../types";
 
 type ExpensesOutputProps = {
-  expenses: Array<ExpenseType>;
+  expenses: Array<Expense>;
   expensesPeriod: string;
 };
 
