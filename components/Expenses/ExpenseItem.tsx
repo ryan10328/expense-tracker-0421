@@ -21,7 +21,7 @@ const ExpenseItem = ({ description, amount, date }: ExpenseItemProps) => {
             {format(new Date(date), "yyyy-MM-dd")}
           </Text>
         </View>
-        <View className="px-3 py-1 bg-white justify-center items-center rounded">
+        <View className="px-3 py-1 bg-white justify-center items-center rounded min-w-[80px]">
           <Text className="text-purple-900 text-bold">{amount}</Text>
         </View>
       </View>
