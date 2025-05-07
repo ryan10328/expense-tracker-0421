@@ -11,7 +11,7 @@ type ExpensesOutputProps = {
 
 const ExpensesOutput = ({ expenses, expensesPeriod }: ExpensesOutputProps) => {
   return (
-    <View className="px-6 pt-6 pb-0 bg-purple-900 flex-1">
+    <View className="px-6 pt-6 pb-0 bg-indigo-900 flex-1">
       <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
       <ExpensesList expenses={expenses} />
     </View>

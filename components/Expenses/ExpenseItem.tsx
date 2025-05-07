@@ -12,17 +12,19 @@ const ExpenseItem = ({ description, amount, date }: ExpenseItemProps) => {
   return (
     <Pressable>
       <View
-        className="p-3 my-2 bg-purple-500 shadow-purple-200 shadow-sm flex-row justify-between rounded-md"
+        className="p-3 my-2 bg-indigo-700 shadow-indigo-200 shadow-sm flex-row justify-between rounded-md"
         style={styles.expenseItem}
       >
-        <View className="text-purple-200">
-          <Text className="text-sm mb-1 font-bold">{description}</Text>
-          <Text className="text-sm mb-1 font-bold">
+        <View>
+          <Text className="text-sm mb-1 font-bold text-indigo-200">
+            {description}
+          </Text>
+          <Text className="text-sm mb-1 font-bold text-indigo-200">
             {format(new Date(date), "yyyy-MM-dd")}
           </Text>
         </View>
         <View className="px-3 py-1 bg-white justify-center items-center rounded min-w-[80px]">
-          <Text className="text-purple-900 text-bold">{amount}</Text>
+          <Text className="text-indigo-900 text-bold">{amount}</Text>
         </View>
       </View>
     </Pressable>
