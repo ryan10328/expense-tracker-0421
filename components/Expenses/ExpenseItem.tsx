@@ -9,8 +9,14 @@ type ExpenseItemProps = {
 };
 
 const ExpenseItem = ({ description, amount, date }: ExpenseItemProps) => {
+  const handleExpenseItemPress = () => {};
+
   return (
-    <Pressable>
+    <Pressable
+      onPress={handleExpenseItemPress}
+      style={({ pressed }) => pressed && styles.pressed}
+      android_ripple={{ color: "#ccc" }}
+    >
       <View
         className="p-3 my-2 bg-indigo-700 shadow-indigo-200 shadow-sm flex-row justify-between rounded-md"
         style={styles.expenseItem}
@@ -34,6 +40,9 @@ const ExpenseItem = ({ description, amount, date }: ExpenseItemProps) => {
 export default ExpenseItem;
 
 const styles = StyleSheet.create({
+  pressed: {
+    opacity: 0.75,
+  },
   expenseItem: {
     shadowOffset: { width: 1, height: 1 },
     elevation: 3,
