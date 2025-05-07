@@ -1,11 +1,11 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
-import { GlobalStyles } from "../../constants/styles";
+import { format } from "date-fns";
 
 type ExpenseItemProps = {
   description: string;
   amount: number;
-  date: Date;
+  date: string;
 };
 
 const ExpenseItem = ({ description, amount, date }: ExpenseItemProps) => {
@@ -17,7 +17,9 @@ const ExpenseItem = ({ description, amount, date }: ExpenseItemProps) => {
       >
         <View className="text-purple-200">
           <Text className="text-sm mb-1 font-bold">{description}</Text>
-          <Text className="text-sm mb-1 font-bold">{date.toString()}</Text>
+          <Text className="text-sm mb-1 font-bold">
+            {format(new Date(date), "yyyy-MM-dd")}
+          </Text>
         </View>
         <View className="px-3 py-1 bg-white justify-center items-center rounded">
           <Text className="text-purple-900 text-bold">{amount}</Text>
