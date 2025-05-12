@@ -6,7 +6,9 @@ export const enum ScreenName {
 }
 
 export type RootStackParamList = {
-  [ScreenName.ManageExpense]: undefined;
+  [ScreenName.ManageExpense]: {
+    id: string;
+  };
   [ScreenName.ExpensesOverview]: undefined;
 };
 
