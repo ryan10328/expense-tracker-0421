@@ -1,13 +1,13 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList, ScreenName } from "./types";
-import { NavigationContainer } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import IconButton from "../components/ui/IconButton";
+import { GlobalStyles } from "../constants/styles";
+import AllExpenses from "../screens/AllExpenses";
 import ManageExpense from "../screens/ManageExpense";
 import RecentExpenses from "../screens/RecentExpenses";
-import AllExpenses from "../screens/AllExpenses";
-import { GlobalStyles } from "../constants/styles";
-import { Ionicons } from "@expo/vector-icons";
-import IconButton from "../components/ui/IconButton";
+import { RootStackParamList, ScreenName } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const BottomTabs = createBottomTabNavigator();
