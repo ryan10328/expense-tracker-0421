@@ -12,6 +12,7 @@
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/native": "^7.1.6",
     "@react-navigation/native-stack": "^7.3.10",
+    "@reduxjs/toolkit": "^2.8.2",
     "date-fns": "^4.1.0",
     "expo": "~52.0.46",
     "expo-status-bar": "~2.0.1",
@@ -21,6 +22,7 @@
     "react-native-reanimated": "^3.16.2",
     "react-native-safe-area-context": "^4.12.0",
     "react-native-screens": "~4.4.0",
+    "react-redux": "^9.2.0",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
@@ -31,4 +33,3 @@
   "private": true,
   "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
 }
-
