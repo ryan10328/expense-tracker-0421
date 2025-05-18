@@ -9,6 +9,8 @@ const state: ExpensesState = {
   expenses: [],
 };
 
+// we can directily manipulate state because redux-toolkit supports immer
+// that can help us simplify our logic
 const expensesSlice = createSlice({
   name: "expenses",
   initialState: state,
