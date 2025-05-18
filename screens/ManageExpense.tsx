@@ -21,7 +21,9 @@ const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
     });
   }, [navigation, isEditing]);
 
-  const handleCancel = () => {};
+  const handleCancel = () => {
+    navigation.goBack();
+  };
   const handleConfirm = () => {};
   const handleDeleteExpense = () => {};
 

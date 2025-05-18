@@ -8,6 +8,8 @@ import AllExpenses from "../screens/AllExpenses";
 import ManageExpense from "../screens/ManageExpense";
 import RecentExpenses from "../screens/RecentExpenses";
 import { RootStackParamList, ScreenName } from "./types";
+import { Provider } from "react-redux";
+import { store } from "../store";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const BottomTabs = createBottomTabNavigator();
@@ -64,27 +66,29 @@ export function ExpensesOverview() {
 
 export function Navigation() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-          headerTintColor: "white",
-        }}
-      >
-        <Stack.Screen
-          name={ScreenName.ExpensesOverview}
-          component={ExpensesOverview}
-          options={{
-            headerShown: false,
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+            headerTintColor: "white",
           }}
-        />
+        >
+          <Stack.Screen
+            name={ScreenName.ExpensesOverview}
+            component={ExpensesOverview}
+            options={{
+              headerShown: false,
+            }}
+          />
 
-        <Stack.Screen
-          name={ScreenName.ManageExpense}
-          component={ManageExpense}
-          options={{ presentation: "modal" }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name={ScreenName.ManageExpense}
+            component={ManageExpense}
+            options={{ presentation: "modal" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
