@@ -7,7 +7,7 @@ export type ExpensesState = {
 };
 
 const state: ExpensesState = {
-  expenses: [...DUMMY_EXPENSES],
+  expenses: [],
 };
 
 // we can directily manipulate state because redux-toolkit supports immer
