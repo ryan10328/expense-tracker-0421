@@ -41,24 +41,24 @@ export const DUMMY_EXPENSES: Array<Expense> = [
     id: "e7",
     description: "Some wines",
     amount: 32.0,
-    date: "2025-02-05",
+    date: "2025-05-15",
   },
   {
     id: "e8",
     description: "Some bottles",
     amount: 15.99,
-    date: "2025-02-10",
+    date: "2025-05-19",
   },
   {
     id: "e9",
     description: "Some laptops",
     amount: 300.99,
-    date: "2025-02-20",
+    date: "2025-05-20",
   },
   {
     id: "e10",
     description: "Some perfume",
     amount: 150.59,
-    date: "2025-02-25",
+    date: "2025-05-21",
   },
 ];

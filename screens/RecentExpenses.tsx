@@ -1,11 +1,15 @@
-import { View, Text } from "react-native";
 import React from "react";
 import ExpensesOutput from "../components/Expenses/ExpensesOutput";
-import { DUMMY_EXPENSES } from "../data";
+import { useAppSelector } from "../store/hooks";
+import { differenceInDays } from "date-fns";
 
 const RecentExpenses = () => {
+  const expenses = useAppSelector((state) => state.expenses.expenses);
+  const recentExpenses = expenses.filter(
+    (expense) => differenceInDays(new Date(), new Date(expense.date)) <= 7,
+  );
   return (
-    <ExpensesOutput expenses={DUMMY_EXPENSES} expensesPeriod="Last 7 days" />
+    <ExpensesOutput expenses={recentExpenses} expensesPeriod="Last 7 days" />
   );
 };
 

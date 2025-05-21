@@ -1,9 +1,11 @@
 import React from "react";
 import ExpensesOutput from "../components/Expenses/ExpensesOutput";
-import { DUMMY_EXPENSES } from "../data";
+import { useAppSelector } from "../store/hooks";
 
 const AllExpenses = () => {
-  return <ExpensesOutput expenses={DUMMY_EXPENSES} expensesPeriod="Total" />;
+  const expenses = useAppSelector((state) => state.expenses.expenses);
+
+  return <ExpensesOutput expenses={expenses} expensesPeriod="Total" />;
 };
 
 export default AllExpenses;

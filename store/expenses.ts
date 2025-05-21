@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Expense } from "../components/types";
+import { DUMMY_EXPENSES } from "../data";
 
 export type ExpensesState = {
   expenses: Expense[];
 };
 
 const state: ExpensesState = {
-  expenses: [],
+  expenses: [...DUMMY_EXPENSES],
 };
 
 // we can directily manipulate state because redux-toolkit supports immer
