@@ -6,7 +6,7 @@ import IconButton from "../components/ui/IconButton";
 import { GlobalStyles } from "../constants/styles";
 import Button from "../components/ui/Button";
 import { useAppDispatch } from "../store/hooks";
-import { remove } from "../store/expenses";
+import { remove, add, update } from "../store/expenses";
 
 type ManageExpenseProps = NativeStackScreenProps<
   RootStackParamList,
@@ -27,7 +27,10 @@ const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
   const handleCancel = () => {
     navigation.goBack();
   };
-  const handleConfirm = () => {};
+  const handleConfirm = () => {
+    // dispatch(isEditing ? update({}) : add({}));
+    navigation.goBack();
+  };
   const handleDeleteExpense = () => {
     dispatch(remove({ id: id }));
     navigation.goBack();
