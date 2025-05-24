@@ -5,6 +5,8 @@ import { RootStackParamList, ScreenName } from "../navigation/types";
 import IconButton from "../components/ui/IconButton";
 import { GlobalStyles } from "../constants/styles";
 import Button from "../components/ui/Button";
+import { useAppDispatch } from "../store/hooks";
+import { remove } from "../store/expenses";
 
 type ManageExpenseProps = NativeStackScreenProps<
   RootStackParamList,
@@ -12,6 +14,7 @@ type ManageExpenseProps = NativeStackScreenProps<
 >;
 
 const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
+  const dispatch = useAppDispatch();
   const id = route.params?.id;
   const isEditing = !!id;
 
@@ -25,7 +28,10 @@ const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
     navigation.goBack();
   };
   const handleConfirm = () => {};
-  const handleDeleteExpense = () => {};
+  const handleDeleteExpense = () => {
+    dispatch(remove({ id: id }));
+    navigation.goBack();
+  };
 
   return (
     <View className="flex-1 p-6 bg-indigo-800">
