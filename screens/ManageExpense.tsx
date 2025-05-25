@@ -7,6 +7,7 @@ import { GlobalStyles } from "../constants/styles";
 import Button from "../components/ui/Button";
 import { useAppDispatch } from "../store/hooks";
 import { remove, add, update } from "../store/expenses";
+import ExpenseForm from "../components/ManageExpense/ExpenseForm";
 
 type ManageExpenseProps = NativeStackScreenProps<
   RootStackParamList,
@@ -38,6 +39,7 @@ const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
 
   return (
     <View className="flex-1 p-6 bg-indigo-800">
+      <ExpenseForm />
       <View className="flex-row justify-center items-center">
         <Button
           mode="flat"
