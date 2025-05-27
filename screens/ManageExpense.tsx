@@ -1,13 +1,13 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList, ScreenName } from "../navigation/types";
 import IconButton from "../components/ui/IconButton";
 import { GlobalStyles } from "../constants/styles";
-import Button from "../components/ui/Button";
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { remove, add, update } from "../store/expenses";
 import ExpenseForm from "../components/ManageExpense/ExpenseForm";
+import { Expense } from "../components/types";
 
 type ManageExpenseProps = NativeStackScreenProps<
   RootStackParamList,
@@ -16,8 +16,11 @@ type ManageExpenseProps = NativeStackScreenProps<
 
 const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
   const dispatch = useAppDispatch();
+  const expenses = useAppSelector((state) => state.expenses.expenses);
   const id = route.params?.id;
   const isEditing = !!id;
+
+  const selectedItem = expenses.find((g) => g.id === id);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -28,8 +31,17 @@ const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
   const handleCancel = () => {
     navigation.goBack();
   };
-  const handleConfirm = () => {
-    // dispatch(isEditing ? update({}) : add({}));
+  const handleConfirm = (data: Expense) => {
+    dispatch(
+      isEditing
+        ? update({
+            id: id,
+            ...data,
+          })
+        : add({
+            ...data,
+          }),
+    );
     navigation.goBack();
   };
   const handleDeleteExpense = () => {
@@ -39,24 +51,12 @@ const ManageExpense = ({ route, navigation }: ManageExpenseProps) => {
 
   return (
     <View className="flex-1 p-6 bg-indigo-800">
-      <ExpenseForm />
-      <View className="flex-row justify-center items-center">
-        <Button
-          mode="flat"
-          onPress={handleCancel}
-          className="min-w-[120px] mx-2"
-        >
-          Cancel
-        </Button>
-        <Button
-          mode="flat"
-          onPress={handleConfirm}
-          className="min-w-[120px] mx-2"
-        >
-          {isEditing ? "Update" : "Add"}
-        </Button>
-      </View>
-
+      <ExpenseForm
+        submittionLabel={isEditing ? "Update" : "Add"}
+        onSubmit={handleConfirm}
+        onCancel={handleCancel}
+        defaultValues={selectedItem}
+      />
       {isEditing && (
         <View className="mt-4 pt-2 border-t-2 border-t-indigo-200 items-center">
           <IconButton
