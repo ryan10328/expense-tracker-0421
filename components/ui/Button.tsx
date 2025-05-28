@@ -11,13 +11,21 @@ type ButtonProps = {
   onPress?: (evt: GestureResponderEvent) => void;
   mode: string;
   className: string;
+  disabled?: boolean;
 };
 
-const Button = ({ children, onPress, mode, className }: ButtonProps) => {
+const Button = ({
+  children,
+  onPress,
+  mode,
+  className,
+  disabled,
+}: ButtonProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      className={`rounded-md p-2 bg-indigo-500 active:opacity-75 active:bg-indigo-100 ${className}`}
+      className={`rounded-md p-2 bg-indigo-500 active:opacity-75 active:bg-indigo-100 ${className} ${disabled ? "opacity-50" : ""}`}
+      disabled={disabled}
     >
       <View
         className={[
