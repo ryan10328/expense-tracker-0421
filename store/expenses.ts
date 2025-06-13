@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Expense } from "../components/types";
-import { DUMMY_EXPENSES } from "../data";
 
 export type ExpensesState = {
   expenses: Expense[];
