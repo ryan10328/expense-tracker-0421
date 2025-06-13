@@ -1,14 +1,9 @@
 import React from "react";
-import ExpensesOutput from "../components/Expenses/ExpensesOutput";
 import { useAppSelector } from "../store/hooks";
-import { supabase } from "../lib/supabase";
+import ExpensesOutput from "../components/Expenses/ExpensesOutput";
 
-const AllExpenses = async () => {
+const AllExpenses = () => {
   const expenses = useAppSelector((state) => state.expenses.expenses);
-
-  const data = await supabase.from("expenses").select("*");
-
-  console.log(data);
 
   return (
     <ExpensesOutput

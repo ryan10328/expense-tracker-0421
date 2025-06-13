@@ -1,5 +1,6 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-import expenses from "./expenses";
+import expenses, { fetchAllExpenses } from "./expenses";
+import { useAppDispatch } from "./hooks";
 
 export const store = configureStore({
   reducer: {
