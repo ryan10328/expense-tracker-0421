@@ -3,10 +3,15 @@ import { Expense } from "../components/types";
 import { supabase } from "../lib/supabase";
 
 export const fetchAllExpenses = createAsyncThunk(
-  "expenses/fetchExpenses",
-  async (_, thunkApi) => {
-    const { data } = await supabase.from("expenses").select();
-    return data as Expense[];
+  "expenses/fetchAllExpenses",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data, error } = await supabase.from("expenses").select();
+      if (error) throw new Error(error.message);
+      return (data || []) as Expense[];
+    } catch (e) {
+      return rejectWithValue("failed to load expenses");
+    }
   },
 );
 
@@ -57,7 +62,6 @@ const expensesSlice = createSlice({
     });
     builder.addCase(fetchAllExpenses.fulfilled, (state, action) => {
       const expenses = action.payload || [];
-      console.log("expenses: ", expenses);
       state.expenses = expenses;
       state.loading = true;
     });
